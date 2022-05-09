@@ -36,6 +36,7 @@ import { GlobalErrorHandlerService } from '../services/handlers/global-error-han
 import { AuthInterceptor } from '../services/interceptors/auth.interceptor';
 import { SystemUserRepository } from '../core/repositories/system-user.repository';
 import { SystemUserWebRepository } from '../data/repository/system-user-web-repository/system-user-web.repository';
+import { UploadFileModule } from '../view/pages/upload-file/upload-file.module';
 
 export function getBaseHref(platformLocation: PlatformLocation): string {
   return platformLocation.getBaseHrefFromDOM();
@@ -56,6 +57,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     UnauthenticatedContentModule,
     AppRoutingModule,
     HttpClientModule,
+    UploadFileModule,
   ],
   providers: [
     AuthService,
