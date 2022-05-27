@@ -37,6 +37,8 @@ import { AuthInterceptor } from '../services/interceptors/auth.interceptor';
 import { SystemUserRepository } from '../core/repositories/system-user.repository';
 import { SystemUserWebRepository } from '../data/repository/system-user-web-repository/system-user-web.repository';
 import { UploadFileModule } from '../view/pages/upload-file/upload-file.module';
+import { UploadFileRepository } from '../core/repositories/upload-file.repository';
+import { UploadFileWebRepository } from '../data/repository/upload-file-web-repository/upload-file-web.repository';
 
 export function getBaseHref(platformLocation: PlatformLocation): string {
   return platformLocation.getBaseHrefFromDOM();
@@ -77,6 +79,7 @@ export function getBaseHref(platformLocation: PlatformLocation): string {
     { provide: LocationStrategy, useClass: PathLocationStrategy },
     { provide: AirplaneRepository, useClass: AirplaneWebRepository },
     { provide: SystemUserRepository, useClass: SystemUserWebRepository },
+    { provide: UploadFileRepository, useClass: UploadFileWebRepository },
     { provide: AuthenticationRepository, useClass: AuthenticationWebRepository },
     { provide: TokenRepository, useClass: TokenWebRepository },
     { provide: SystemUserLookupRepository, useClass: SystemUserLookupWebRepository },
