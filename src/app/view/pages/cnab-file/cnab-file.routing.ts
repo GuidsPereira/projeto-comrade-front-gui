@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UpLoadFileComponent } from './upload-file.component';
+import { CnabFileComponent } from './cnab-file.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: UpLoadFileComponent,
+    component: CnabFileComponent,
   },
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class UploadFileRoutingModule {}
+export class CnabFileRoutingModule {}

@@ -30,7 +30,7 @@ export const navigation = [
   },
   {
     text: 'Upload-File',
-    path: '/upload',
+    path: '/cnab',
     icon: 'file',
   },
 ];

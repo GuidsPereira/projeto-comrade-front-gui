@@ -32,9 +32,9 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'upload',
+    path: 'cnab',
     loadChildren: () =>
-      import('../view/pages/upload-file/upload-file.module').then((m) => m.UploadFileModule),
+      import('../view/pages/cnab-file/cnab-file.module').then((m) => m.CnabFileModule),
     canActivate: [AuthGuard],
   },
   {
