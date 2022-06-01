@@ -1,3 +1,70 @@
+<form [formGroup]="CnabForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="tipo" class="form-label">Tipo</label>
+    <input type="text" class="form-control" id="tipo" formControlName="Tipo" placeholder="Tipo" />
+  </div>
+
+  <div class="form-group">
+    <label for="data" class="form-label">Data</label>
+    <input type="text" class="form-control" id="data" formControlName="Data" placeholder="Data" />
+  </div>
+
+  <div class="form-group">
+    <label for="valor" class="form-label">Valor</label>
+    <input
+      type="text"
+      class="form-control"
+      id="valor"
+      formControlName="Valor"
+      placeholder="Valor"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="cpf" class="form-label">CPF</label>
+    <input type="text" class="form-control" id="cpf" formControlName="CPF" placeholder="CPF" />
+  </div>
+
+  <div class="form-group">
+    <label for="cartao" class="form-label">Cartão</label>
+    <input
+      type="text"
+      class="form-control"
+      id="cartao"
+      formControlName="Cartao"
+      placeholder="Cartão"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="hora" class="form-label">Hora</label>
+    <input type="text" class="form-control" id="hora" formControlName="Hora" placeholder="Hora" />
+  </div>
+
+  <div class="form-group">
+    <label for="donoLoja" class="form-label">Dono da Loja</label>
+    <input
+      type="text"
+      class="form-control"
+      id="donoLoja"
+      formControlName="DonoLoja"
+      placeholder="Dono da Loja"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="nomeloja" class="form-label">Nome da Loja</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nomeloja"
+      formControlName="NomeLoja"
+      placeholder="Nome da Loja"
+    />
+  </div>
+  <button type="submit" class="button" onclik="onSubmit()">Enviar</button>
+</form>
+
 <div class="input-group">
   <input
     type="file"
