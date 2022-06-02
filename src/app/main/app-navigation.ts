@@ -29,7 +29,7 @@ export const navigation = [
     ],
   },
   {
-    text: 'Upload-File',
+    text: 'Cnab',
     path: '/cnab',
     icon: 'file',
   },

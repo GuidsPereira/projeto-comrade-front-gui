@@ -3,6 +3,8 @@ import { CnabFileModel } from 'src/app/core/models/cnab-file.model';
 import { GetAllCnabFileUsecase } from 'src/app/core/usecases/cnab-file/get-all-cnab-file.usecase';
 import { PostCnabFileUsecase } from 'src/app/core/usecases/cnab-file/post-cnab-file.usecase';
 import { FormControl, FormsModule, FormGroup } from '@angular/forms';
+import { PostCnabFileManyUsecase } from 'src/app/core/usecases/cnab-file/post-cnab-file-many-usecase';
+import { CnabFileManyModel } from 'src/app/core/models/cnab-file-many.model';
 
 @Component({
   selector: 'app-cnab-file',
@@ -13,13 +15,15 @@ import { FormControl, FormsModule, FormGroup } from '@angular/forms';
 export class CnabFileComponent implements OnInit {
   dataSource!: CnabFileModel[];
   data?: CnabFileModel;
+  dataMany?: CnabFileManyModel;
   loading: boolean = false;
   file?: File;
   cnabStrings?: any;
 
   constructor(
     private getAllCnabFile: GetAllCnabFileUsecase,
-    private postCnabFileUseCase: PostCnabFileUsecase
+    private postCnabFileUseCase: PostCnabFileUsecase,
+    private postCnabFileMany: PostCnabFileManyUsecase
   ) {}
 
   ngOnInit(): void {}
@@ -42,17 +46,17 @@ export class CnabFileComponent implements OnInit {
   onSubmit() {
     console.log(this.CnabForm.get('Tipo')?.value);
 
-    this.cnabStrings = [];
-    var cnabFormString = this.CnabForm.get('Tipo')?.value.concat(this.CnabForm.get('Data')?.value);
-    cnabFormString = cnabFormString.concat(this.CnabForm.get('Valor')?.value);
-    cnabFormString = cnabFormString.concat(this.CnabForm.get('CPF')?.value);
-    cnabFormString = cnabFormString.concat(this.CnabForm.get('Cartao')?.value);
-    cnabFormString = cnabFormString.concat(this.CnabForm.get('Hora')?.value);
-    cnabFormString = cnabFormString.concat(this.CnabForm.get('DonoLoja')?.value);
-    cnabFormString = cnabFormString.concat(this.CnabForm.get('NomeLoja')?.value);
-    this.cnabStrings = cnabFormString;
-
-    this.PostFile();
+    this.data = {
+      tipo: this.CnabForm.get('Tipo')?.value,
+      data: this.CnabForm.get('Data')?.value,
+      valor: this.CnabForm.get('Valor')?.value,
+      cpf: this.CnabForm.get('CPF')?.value,
+      cartao: this.CnabForm.get('Cartao')?.value,
+      hora: this.CnabForm.get('Hora')?.value,
+      donoLoja: this.CnabForm.get('DonoLoja')?.value,
+      nomeLoja: this.CnabForm.get('NomeLoja')?.value,
+    };
+    this.postCnabFileUseCase.execute(this.data).subscribe();
   }
 
   readThis(inputValue: any): void {
@@ -78,9 +82,9 @@ export class CnabFileComponent implements OnInit {
   }
 
   PostFile() {
-    this.data = {
-      info: this.cnabStrings,
+    this.dataMany = {
+      infoMany: this.cnabStrings,
     };
-    this.postCnabFileUseCase.execute(this.data).subscribe();
+    this.postCnabFileMany.execute(this.dataMany).subscribe();
   }
 }
