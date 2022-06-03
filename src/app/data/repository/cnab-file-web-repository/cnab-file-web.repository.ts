@@ -35,7 +35,7 @@ export class CnabFileWebRepository extends CnabFileRepository {
   getAllCnabFile(filter: PageFilterModel): Observable<PageResultModel<CnabFileModel>> {
     var request = this.http
       .getAll<PageResultModel<CnabFileWebEntity>>(
-        `${environment.CNABFILE}cnab-file/teste-gui${makeParamFilterGrid(filter)}`
+        `${environment.CNABFILE}cnab-file/get-all${makeParamFilterGrid(filter)}`
       )
       .pipe(
         map((x) => {
