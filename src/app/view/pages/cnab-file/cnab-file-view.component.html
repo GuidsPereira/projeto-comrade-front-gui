@@ -1,0 +1,37 @@
+<div id="data-grid-demo">
+  <dx-data-grid
+    id="gridContainer"
+    [dataSource]="dataSource"
+    keyExpr="id"
+    [showBorders]="true"
+    (onRowRemoving)="deleteCnab($event)"
+    (onRowUpdated)="updateCnab($event)"
+    (onRowInserted)="addingCnab($event)"
+  >
+    <dxo-paging [enabled]="true"></dxo-paging>
+    <dxo-editing mode="popup" [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true">
+      <dxo-popup title="Cnab" [showTitle]="true" [width]="700" [height]="525"> </dxo-popup>
+      <dxo-form>
+        <dxi-item itemType="group" [colCount]="1" [colSpan]="1">
+          <dxi-item dataField="tipo"></dxi-item>
+          <dxi-item dataField="data"></dxi-item>
+          <dxi-item dataField="valor"></dxi-item>
+          <dxi-item dataField="cpf"></dxi-item>
+          <dxi-item dataField="cartao"></dxi-item>
+          <dxi-item dataField="hora"></dxi-item>
+          <dxi-item dataField="donoLoja"></dxi-item>
+          <dxi-item dataField="nomeLoja"></dxi-item>
+        </dxi-item>
+      </dxo-form>
+    </dxo-editing>
+
+    <dxi-column dataField="tipo" caption="Tipo"></dxi-column>
+    <dxi-column dataField="data"></dxi-column>
+    <dxi-column dataField="valor"></dxi-column>
+    <dxi-column dataField="cpf"></dxi-column>
+    <dxi-column dataField="cartao"></dxi-column>
+    <dxi-column dataField="hora"></dxi-column>
+    <dxi-column dataField="donoLoja"></dxi-column>
+    <dxi-column dataField="nomeLoja"></dxi-column>
+  </dx-data-grid>
+</div>
