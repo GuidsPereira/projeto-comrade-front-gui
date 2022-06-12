@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CnabFileModel } from 'src/app/core/models/cnab-file.model';
 import { GetAllCnabFileUsecase } from 'src/app/core/usecases/cnab-file/get-all-cnab-file.usecase';
 import { PostCnabFileUsecase } from 'src/app/core/usecases/cnab-file/post-cnab-file.usecase';
@@ -12,7 +12,7 @@ import { CnabFileManyModel } from 'src/app/core/models/cnab-file-many.model';
   styleUrls: ['cnab-file.component.scss'],
   providers: [],
 })
-export class CnabFileComponent implements OnInit {
+export class CnabFileComponent {
   dataSource!: CnabFileModel[];
   data?: CnabFileModel;
   dataMany?: CnabFileManyModel;
@@ -25,8 +25,6 @@ export class CnabFileComponent implements OnInit {
     private postCnabFileUseCase: PostCnabFileUsecase,
     private postCnabFileMany: PostCnabFileManyUsecase
   ) {}
-
-  ngOnInit(): void {}
 
   onFileChange($event: { target: any }): any {
     this.readThis($event.target);

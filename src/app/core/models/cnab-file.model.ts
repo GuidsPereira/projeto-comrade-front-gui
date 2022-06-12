@@ -1,4 +1,5 @@
 export interface CnabFileModel {
+  id?: string;
   tipo: string;
   data: string;
   valor: string;

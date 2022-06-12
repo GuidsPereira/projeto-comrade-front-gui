@@ -38,6 +38,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'cnab-view',
+    loadChildren: () =>
+      import('../view/pages/cnab-file/cnab-file-view.module').then((m) => m.CnabFileViewModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: 'login-form',
     component: LoginFormComponent,
     canActivate: [AuthGuardService],

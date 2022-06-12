@@ -1,4 +1,5 @@
 export interface CnabFileWebEntity {
+  id?: string;
   tipo: string;
   data: string;
   valor: string;

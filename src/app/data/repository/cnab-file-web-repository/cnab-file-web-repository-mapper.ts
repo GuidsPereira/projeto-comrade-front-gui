@@ -5,6 +5,7 @@ import { CnabFileModel } from 'src/app/core/models/cnab-file.model';
 export class CnabFileWebRepositoryMapper extends Mapper<CnabFileWebEntity, CnabFileModel> {
   mapFrom(param: CnabFileWebEntity): CnabFileModel {
     return {
+      id: param.id,
       tipo: param.tipo,
       data: param.data,
       valor: param.valor,
@@ -18,6 +19,7 @@ export class CnabFileWebRepositoryMapper extends Mapper<CnabFileWebEntity, CnabF
 
   mapTo(param: CnabFileModel): CnabFileWebEntity {
     return {
+      id: param.id,
       tipo: param.tipo,
       data: param.data,
       valor: param.valor,

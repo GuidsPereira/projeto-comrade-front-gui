@@ -19,7 +19,7 @@ export const navigation = [
     ],
   },
   {
-    text: 'qwe123',
+    text: 'System User',
     icon: 'folder',
     items: [
       {
@@ -30,7 +30,16 @@ export const navigation = [
   },
   {
     text: 'Cnab',
-    path: '/cnab',
     icon: 'file',
+    items: [
+      {
+        text: 'Cnab view',
+        path: '/cnab-view',
+      },
+      {
+        text: 'cnab',
+        path: '/cnab',
+      },
+    ],
   },
 ];

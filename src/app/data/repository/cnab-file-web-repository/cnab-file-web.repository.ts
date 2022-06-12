@@ -26,7 +26,7 @@ export class CnabFileWebRepository extends CnabFileRepository {
   mapper = new CnabFileWebRepositoryMapper();
   mapperMany = new CnabFileManyWebRepositoryMapper();
 
-  getCnabFileById(id: number): Observable<SingleResultModel<CnabFileModel>> {
+  getCnabFileById(id: string): Observable<SingleResultModel<CnabFileModel>> {
     PageResultModel;
     return this.http
       .get<SingleResultModel<CnabFileWebEntity>>(`${environment.CNABFILE}cnab-file/get-by-id`, id)
@@ -68,5 +68,17 @@ export class CnabFileWebRepository extends CnabFileRepository {
       .pipe(map((x) => this.mapper.mapFrom(x.data)));
     request.subscribe();
     return request;
+  }
+  putCnabFile(param: CnabFileModel): Observable<void> {
+    {
+      return this.http
+        .put<void>(`${environment.CNABFILE}cnab-file/edit`, this.mapper.mapTo(param))
+        .pipe(map((x) => x.data));
+    }
+  }
+  deleteCnabFile(id: string): Observable<void> {
+    return this.http
+      .delete<void>(`${environment.CNABFILE}cnab-file/delete/${id}`, id)
+      .pipe(map((x) => x.data));
   }
 }
